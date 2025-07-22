@@ -1,71 +1,71 @@
 {
   "stats": {
-    "expected": 2,
-    "unexpected": 10,
+    "expected": 5,
+    "unexpected": 7,
     "skipped": 0,
     "flaky": 0,
-    "duration": 6517
+    "duration": 5334
   },
   "tests": [
     {
       "title": "img hover edildiğinde grayscale class eklenmeli",
       "status": "passed",
-      "duration": 528
+      "duration": 525
     },
     {
       "title": "img mouseleave olunca grayscale class silinmeli",
       "status": "passed",
-      "duration": 222
+      "duration": 287
     },
     {
       "title": "1 tuşuna basıldığında body class theme1 olmalı",
       "status": "failed",
-      "duration": 256
+      "duration": 349
     },
     {
       "title": "2 tuşuna basıldığında body class theme2 olmalı",
       "status": "failed",
-      "duration": 612
+      "duration": 582
     },
     {
       "title": "3 tuşuna basıldığında body class theme3 olmalı",
       "status": "failed",
-      "duration": 544
+      "duration": 570
     },
     {
       "title": "Escape tuşuna basıldığında tüm theme classları kaldırılmalı",
       "status": "failed",
-      "duration": 492
+      "duration": 459
     },
     {
       "title": "Inputa yazılan metin büyük harfe dönüşmeli",
-      "status": "failed",
-      "duration": 618
+      "status": "passed",
+      "duration": 529
     },
     {
       "title": "5 karakterden küçükken buton disabled olmalı",
-      "status": "failed",
-      "duration": 660
+      "status": "passed",
+      "duration": 184
     },
     {
       "title": "5 karakter ve üzeri yazıldığında buton enabled olmalı",
-      "status": "failed",
-      "duration": 614
+      "status": "passed",
+      "duration": 192
     },
     {
       "title": "Submit edildiğinde paragraf güncellenmeli",
       "status": "failed",
-      "duration": 642
+      "duration": 322
     },
     {
       "title": "Submit sonrası input alanı sıfırlanmalı",
       "status": "failed",
-      "duration": 712
+      "duration": 658
     },
     {
       "title": "Submit sonrası buton disabled olmalı",
       "status": "failed",
-      "duration": 618
+      "duration": 678
     }
   ]
 }

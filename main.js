@@ -5,13 +5,10 @@ Tüm <img> etiketlerine mouseenter ve mouseleave eventleri ekleyin.
 - Mouse çıktığında (mouseleave): "grayscale" class'ını kaldırın.
 */
 
-const images = document.querySelectorAll("img");
-
-images.forEach(img => {
+document.querySelectorAll("img").forEach(img => {
   img.addEventListener("mouseenter", () => {
     img.classList.add("grayscale");
   });
-
   img.addEventListener("mouseleave", () => {
     img.classList.remove("grayscale");
   });
@@ -26,30 +23,16 @@ Sayfa aktifken (herhangi bir yere tıklandığında), klavye dinlemeye başlası
 NOT: Klavye eventlerini document yerine **window** nesnesine ekleyin.
 */
 
-let isListening = false;
-
-document.addEventListener("click", () => {
-  if (!isListening) {
-    window.addEventListener("keydown", handleKeyPress);
-    isListening = true;
+const themes = ["theme1", "theme2", "theme3"];
+window.addEventListener("keydown", (event) => {
+  const body = document.body;
+  if (["1", "2", "3"].includes(event.key)) {
+    body.classList.remove(...themes);
+    body.classList.add(`theme${event.key}`);
+  } else if (event.key === "Escape") {
+    body.classList.remove(...themes);
   }
 });
-
-function handleKeyPress(event) {
-  const body = document.body;
-  const themes = ["theme1", "theme2", "theme3"];
-
-  body.classList.remove(...themes);
-
-  if (event.key === "1") {
-    body.classList.add("theme1");
-  } else if (event.key === "2") {
-    body.classList.add("theme2");
-  } else if (event.key === "3") {
-    body.classList.add("theme3");
-  } else if (event.key === "Escape") {
-  }
-}
 
 /*
 CHALLENGE 3:
@@ -59,19 +42,14 @@ CHALLENGE 3:
 - Aksi halde (5 veya daha az karakter) buton "disabled" olmalı
 */
 
-const input = document.getElementById("full_name");
-const button = document.querySelector("button");
+const nameInput = document.getElementById("full_name");
+const saveBtn = document.querySelector("button");
 
-input.addEventListener("input", () => {
-
-  input.value = input.value.toUpperCase();
-
-  if (input.value.length > 5) {
-    button.disabled = false;
-  } else {
-    button.disabled = true;
-  }
+nameInput.addEventListener("input", () => {
+  nameInput.value = nameInput.value.toUpperCase();
+  saveBtn.disabled = nameInput.value.length <= 5;
 });
+
 
 
 /*
@@ -82,3 +60,17 @@ Form submit edildiğinde (Kaydet butonuna basıldığında):
 - Input alanını temizleyin
 - <button> tekrar disabled hale gelsin
 */
+
+const form = document.querySelector("form");
+const submitResult = document.getElementById("submitResult");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const value = nameInput.value.trim();
+
+  if (value.length > 0) {
+    submitResult.textContent = `${value} başarı ile kaydedildi.`;
+    nameInput.value = "";
+    saveBtn.disabled = true;
+  }
+});
